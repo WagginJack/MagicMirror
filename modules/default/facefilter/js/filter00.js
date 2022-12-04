@@ -20,7 +20,7 @@ function preload() {
     imgSpidermanMask = loadImage("https://i.ibb.co/9HB2sSv/spiderman-mask-1.png");
     // DetectionSquare Mask Filter asset
     imgDetectionSquare = loadImage("https://i.ibb.co/nQcTyRL/Detection-Square.png");
-    // Dog Face Filter assets
+    // Dog Face Filter assets for regular and dark mode
     imgDogEarRight = loadImage("https://i.ibb.co/bFJf33z/dog-ear-right.png");
     imgDogEarLeft = loadImage("https://i.ibb.co/dggwZ1q/dog-ear-left.png");
     imgDogNose = loadImage("https://i.ibb.co/PWYGkw1/dog-nose.png");
