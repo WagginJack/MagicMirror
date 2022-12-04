@@ -16,6 +16,7 @@ var CameraIsPlay = true;
  * **p5.js** library automatically executes the `preload()` function. Basically, it is used to load external files. In our case, we'll use it to load the images for our filters and assign them to separate variables for later use.
  */
 function preload() {
+    //Spider Man Filter assets
     imgSpidermanMask = loadImage("https://i.ibb.co/9HB2sSv/spiderman-mask-1.png");
     // DetectionSquare Mask Filter asset
     imgDetectionSquare = loadImage("https://i.ibb.co/nQcTyRL/Detection-Square.png");
