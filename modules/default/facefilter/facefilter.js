@@ -21,18 +21,4 @@ Module.register("facefilter", {
         faceTracker.init();
         faceTracker.start(videoInput.elt);
     },
-    maxWidthValue : function(){
-        
-    }
-    videoInputObject : function() {
-        videoInput = createCapture(VIDEO); //document.getElementById('miCamara');
-        videoInput.parent('miCamara');
-        videoInput.size(outputWidth, outputHeight);
-        videocamara = videoInput;
-        videoInput.hide();
-        return videoInput
-    }
-    getDom: function() {
-
-    }
  });
