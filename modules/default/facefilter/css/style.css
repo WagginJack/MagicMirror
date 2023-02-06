@@ -1,129 +1,84 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
+/******************************************************************************
 
-#bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    background-repeat: repeat;
-    background-size: 1200px;
-}
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
 
-#Hd {
-    z-index: 1;
-    background: rgb(255, 136, 0);
-}
+*******************************************************************************/
 
-#wrapper {
-    position: relative;
-    width: 80%;
-    height: 100VH;
-    margin:  0 auto;
-    z-index: 2;
-    background: #fff;
-    /*padding: 50px; */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+#include <stdio.h>
 
-#Hd h2 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-#wrapper p {
-    text-align: center;
-    font-size: 1.2em;
-    line-height: 1.6em;
-}
-
-.btn_Perso {
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #ff8800;
-    border-radius: 6px;
-    border: 2px solid #ff5100;
-}
-
-.btn_Perso:hover {
-    color: #ff5100;
-    background-color: #ffffff;
-}
-
-.box {
-    position: absolute;
-    top: 75%;
-    left: 25%;
-
-    transform: translate(-50%, -50%);
-}
-
-.box select {
-    background-color: #ff8800;
-    color: white;
-    padding: 12px;
-    width: 250px;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
-}
-
-.box::before {
-    content: "\f13a";
-    font-family: FontAwesome;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20%;
-    height: 100%;
-    text-align: center;
-    font-size: 28px;
-    line-height: 45px;
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.1);
-    pointer-events: none;
-}
-
-.box:hover::before {
-    color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.box select option {
-    padding: 30px;
-}
-
-#miCamara {
-    /*position: relative;
-    margin: 50px 50px 50px 40px;
-    margin-left: auto;
-    margin-right: auto;
-    top: 50%;
-    left: 50%;
-    align-items: center;
-    display: flex;*/
+int main()
+{
+    printf("Calculator\n\n");
     
+    printf("What do you want to do?\n\n1) Addition\n2) Subtraction\n3) Multiplication\n4) Division\n5) Leave\n");
 
+    int choice = 0;
+    while(1)
+    {
+        printf("Select: ");
     
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        scanf("%d",&choice );
 
+        if (choice <=0 || choice >5)
+        {
+            printf("Please choose number 1, 2, 3, 4, or 5: ");
+        }
+        else
+        {
+            break;
+        }
+    
+    }
 
-         
+    int x = 0;
+    int y = 0;
+
+    while(1)
+    {
+        if (choice == 1)
+        {
+            printf("Choose Operand 1: ");
+            scanf("%d",&x );
+            printf("Choose Operand 2: ");
+            scanf("%d",&y );
+            printf("Sum of %d and %d = %d",x,y,x+y);
+        }
+    
+        if (choice == 2)
+        {
+            printf("Choose Operand 1: ");
+            scanf("%d",&x );
+            printf("Choose Operand 2: ");
+            scanf("%d",&y );
+            printf("Difference of %d and %d = %d",x,y,x-y);
+        }
+    
+        if (choice == 3)
+        {
+            printf("Choose Operand 1: ");
+            scanf("%d",&x );
+            printf("Choose Operand 2: ");
+            scanf("%d",&y );
+            printf("Product of %d and %d = %d",x,y,x*y);
+        }
+    
+        if (choice == 4)
+        {
+            float a = 0;
+            float b = 0;
+            printf("Choose Operand 1: ");
+            scanf("%f",&a );
+            printf("Choose Operand 2: ");
+            scanf("%f",&b );
+            printf("Quotient of %f and %f = %f",a,b,a/b);
+        }
+    
+        if (choice ==5)
+        {
+            break;
+        }
+    }
+    return 0;
 }
