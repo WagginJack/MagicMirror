@@ -277,3 +277,69 @@ function uploadPhoto() {
 function saveImages() {
     saveCanvas(cnv);
 }
+
+function displayTime(){
+    var dateTime = new Date();
+    var hrs = dateTime.getHours();
+    var min = dateTime.getMinutes();
+    var sec = dateTime.getSeconds();
+    var session = document.getElementById('session');
+
+    if(hrs >= 12){
+        session.innerHTML = 'PM';
+    }else{
+        session.innerHTML = 'AM';
+    }
+
+    if(hrs > 12){
+        hrs = hrs - 12;
+    }
+
+    if(min<10)
+    {
+        min = "0" + min.toString();
+    }
+
+    document.getElementById('hours').innerHTML = hrs;
+    document.getElementById('minutes').innerHTML = min;
+    
+}
+setInterval(displayTime, 10);
+setInterval(displayDate, 10);
+setInterval(checkWeather, 10);
+
+function displayDate(){
+    var dateTime = new Date();
+    var Month = dateTime.getMonth()+1;
+    var Year = dateTime.getFullYear();
+    var Day = dateTime.getDate();
+    var session = document.getElementById('session');
+
+
+    document.getElementById('Month').innerHTML = Month;
+    document.getElementById('Day').innerHTML = Day;
+    document.getElementById('Year').innerHTML = Year;
+}
+
+
+function checkWeather() {
+    //let xGrid = gridX.toString();
+    //let yGrid = gridY.toString();
+    //let url = "https://api.weather.gov/gridpoints/TOP/95,43/forecast/hourly";
+    fetch('https://api.weather.gov/gridpoints/TOP/95,43/forecast/hourly')
+  .then(data => data.json())
+  .then(data => {
+/*    const weather_data = data
+      .properties
+      .periods[1].temperature;
+    main(weather_data);*/
+
+	let weather_data = [];
+	let added_temperature = 0;
+	weather_data[0] = data.properties.periods[0].temperature;
+
+
+	//average_weather  =  Math.round((average_weather + Number.EPSILON)*100)/100
+	document.getElementById('Temperature').innerHTML = weather_data;
+  });
+  }
