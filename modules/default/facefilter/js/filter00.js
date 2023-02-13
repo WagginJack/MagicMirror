@@ -308,7 +308,7 @@ setInterval(displayTime, 10);
 setInterval(displayDate, 10);
 setInterval(checkWeather, 10);
 let iterator = 0;
-setInterval(compliments,5000);
+setInterval(compliments,10000);
 
 
 function displayDate(){

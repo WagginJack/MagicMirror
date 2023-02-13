@@ -211,8 +211,8 @@
     font-weight: bold;
     position: absolute;
     bottom: 0%;
-    align-items: center;
-    font-size: 75px;
+    /*align-items: center;
+    */font-size: 75px;
     white-space: nowrap;
     z-index: 999;
 }
