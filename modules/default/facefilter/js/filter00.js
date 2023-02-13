@@ -307,6 +307,9 @@ function displayTime(){
 setInterval(displayTime, 10);
 setInterval(displayDate, 10);
 setInterval(checkWeather, 10);
+let iterator = 0;
+setInterval(compliments,5000);
+
 
 function displayDate(){
     var dateTime = new Date();
@@ -343,3 +346,49 @@ function checkWeather() {
 	document.getElementById('Temperature').innerHTML = weather_data;
   });
   }
+
+  function compliments() {
+    //let xGrid = gridX.toString();
+    //let yGrid = gridY.toString();
+    //let url = "https://api.weather.gov/gridpoints/TOP/95,43/forecast/hourly";
+    
+    let morning_compliments = ["Good morning!", "Enjoy your day!", "How was your sleep?","You are looking good!"];
+    let afternoon_compliments = ["Good afternoon!", "You are looking great!", "Looking good today!"];
+    let evening_compliments = ["Still looking good!", "You look nice!", "Hey there!"];
+    
+    var dateTime = new Date();
+
+    let theCompliment = "";
+
+    if(dateTime.getHours()<12 && dateTime.getHours()>3)
+    {
+        theCompliment = morning_compliments[iterator%4];
+        if (iterator ==4)
+        {
+            iterator=0;
+        }
+        iterator++;
+    }
+    if(dateTime.getHours()>=12 && dateTime.getHours()<17)
+    {
+        theCompliment = afternoon_compliments[iterator%3];
+        if (iterator ==3)
+        {
+            iterator=0;
+        }
+        iterator++;
+    }
+    else
+    {
+        theCompliment = evening_compliments[iterator%3];
+        if (iterator ==3)
+        {
+            iterator=0;
+        }
+        iterator++;
+    }
+
+	//average_weather  =  Math.round((average_weather + Number.EPSILON)*100)/100
+	document.getElementById('complement').innerHTML = theCompliment;
+
+}
