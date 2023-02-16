@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+body{
+    overflow: hidden;
+}
+
 #bg {
     position: fixed;
     top: 0;
