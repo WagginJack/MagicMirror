@@ -354,7 +354,7 @@ function checkWeather() {
     
     let morning_compliments = ["Good morning!", "Enjoy your day!", "How was your sleep?","You are looking good!"];
     let afternoon_compliments = ["Good afternoon!", "You are looking great!", "Looking good today!"];
-    let evening_compliments = ["Still looking good!", "You look nice!", "Hey there!"];
+    let evening_compliments = ["Good Evening!","Still looking good!", "You look nice!", "Hey there!"];
     
     var dateTime = new Date();
 
@@ -378,10 +378,10 @@ function checkWeather() {
         }
         iterator++;
     }
-    else
+    else if (dateTime.getHours()>=17 || dateTime.getHours()<=3)
     {
-        theCompliment = evening_compliments[iterator%3];
-        if (iterator ==3)
+        theCompliment = evening_compliments[iterator%4];
+        if (iterator ==4)
         {
             iterator=0;
         }
