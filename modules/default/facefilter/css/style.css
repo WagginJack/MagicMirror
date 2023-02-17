@@ -200,6 +200,20 @@ body{
     z-index: 999;
 }
 
+.container_location{
+    font-family: "Arial", Helvetica, sans-serif;
+    padding: 30px;
+    color: #fff;
+    background: transparent;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    font-size: 75px;
+    white-space: nowrap;
+    z-index: 999;
+}
+
 .compliments {
     position: absolute;
     bottom: 15%;
