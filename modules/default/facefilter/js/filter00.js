@@ -314,7 +314,7 @@ setInterval(displayDate, 10);
 setInterval(checkWeather, 10000);//needs optimiszation
 let iterator = 0;
 setInterval(compliments,10000);
-setInterval(getNews,1000);
+setInterval(getNews,7000);
 
 
 function displayDate(){
