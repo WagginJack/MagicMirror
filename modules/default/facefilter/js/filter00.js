@@ -403,7 +403,7 @@ function checkWeather() {
 function getNews()
 {
 
-fetch('https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml')
+fetch('https://rss.nytimes.com/services/xml/rss/nyt/PersonalTech.xml')
   .then(response => response.text())
   .then(xml => {
     const parser = new DOMParser();
