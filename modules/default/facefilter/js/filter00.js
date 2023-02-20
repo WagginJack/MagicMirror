@@ -1,3 +1,7 @@
+
+let newsIterator =1;
+
+
 let outputWidth;
 let outputHeight;
 
@@ -15,6 +19,7 @@ var CameraIsPlay = true;
 /*
  * **p5.js** library automatically executes the `preload()` function. Basically, it is used to load external files. In our case, we'll use it to load the images for our filters and assign them to separate variables for later use.
  */
+
 function preload() {
     //Spider Man Filter assets
     imgSpidermanMask = loadImage("https://i.ibb.co/9HB2sSv/spiderman-mask-1.png");
@@ -309,6 +314,7 @@ setInterval(displayDate, 10);
 setInterval(checkWeather, 10000);//needs optimiszation
 let iterator = 0;
 setInterval(compliments,10000);
+setInterval(getNews,1000);
 
 
 function displayDate(){
@@ -390,5 +396,41 @@ function checkWeather() {
 
 	//average_weather  =  Math.round((average_weather + Number.EPSILON)*100)/100
 	document.getElementById('complement').innerHTML = theCompliment;
+
+}
+
+
+function getNews()
+{
+
+fetch('https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml')
+  .then(response => response.text())
+  .then(xml => {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xml, 'text/xml');
+    const items = xmlDoc.getElementsByTagName('item');
+    
+
+    const titles = [];
+    for (let i = 0; i < items.length; i++) {
+        const title = items[i].getElementsByTagName('title')[0].textContent;
+        titles.push(title);
+    }
+
+
+    let firstTitle = "Hello";
+    if(newsIterator<items.length)
+    {
+        firstTitle = titles[newsIterator];
+        newsIterator++;
+    }
+    else 
+    {
+        firstTitle = titles[0];
+        newsIterator = 0;
+    }
+    document.getElementById('newsTitle').innerHTML = firstTitle;
+  })
+  .catch(error => console.error(error));
 
 }

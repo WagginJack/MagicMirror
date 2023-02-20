@@ -36,6 +36,17 @@
     <div id="weather" >
         <div class="container_weather">
             <span id="Temperature">00</span>
+            <script>
+            fetch('https://api.weather.gov/gridpoints/TOP/95,43/forecast/hourly')
+            .then(data => data.json())
+            .then(data => {
+        	let weather_data = [];
+	        let added_temperature = 0;
+	        weather_data[0] = data.properties.periods[0].temperature;
+        	document.getElementById('Temperature').innerHTML = weather_data;
+            });
+            </script>
+
             <span>°F</span>
         </div>
 	<div class="container_location">
@@ -77,6 +88,22 @@
         <div class="compliments" >
             <div class="container_compliments">
                 <span id="complement">Hey There!</span>
+            </div>
+            <div class="container_news">
+                <span id="newsTitle">FPGA BOARDS! OH MY!!</span>
+                <script>
+                fetch('https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml')
+                .then(response => response.text())
+                .then(xml => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xml, 'text/xml');
+                const items = xmlDoc.getElementsByTagName('item');
+                const titles = Array.from(items).map(item => item.getElementsByTagName('title')[0].textContent);
+                let firstTitle = titles[0];
+                 document.getElementById('newsTitle').innerHTML = firstTitle;
+                })
+                .catch(error => console.error(error));
+                </script>
             </div>
         </div>
         <!--<button id="btn_Save" class="btn_Perso" onclick="saveImages()">Cheeseeeeeeeee!</button>
