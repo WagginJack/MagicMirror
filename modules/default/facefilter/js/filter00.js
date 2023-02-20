@@ -344,7 +344,7 @@ function checkWeather() {
     main(weather_data);*/
 
 	let weather_data = [];
-	let added_temperature = 0;
+	//let added_temperature = 0;
 	weather_data[0] = data.properties.periods[0].temperature;
 
 
@@ -354,9 +354,7 @@ function checkWeather() {
   }
 
   function compliments() {
-    //let xGrid = gridX.toString();
-    //let yGrid = gridY.toString();
-    //let url = "https://api.weather.gov/gridpoints/TOP/95,43/forecast/hourly";
+
     
     let morning_compliments = ["Good morning!", "Enjoy your day!", "How was your sleep?","You are looking good!"];
     let afternoon_compliments = ["Good afternoon!", "You are looking great!", "Looking good today!"];
