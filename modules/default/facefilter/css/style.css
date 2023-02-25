@@ -72,7 +72,7 @@ body{
 
 .box {
     position: absolute;
-    top: 50%;
+    top: -10%;
     left: 50%;
 /*fsdkfhksdjfhaskjdfh*/
     transform: translate(-50%, -50%);
