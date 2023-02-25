@@ -12,7 +12,10 @@ setInterval(
         document.getElementById("lname").value = "";
       }
     }, 50);
-
+/*document.getElementById("bg").addEventListener("click", () => {
+    document.getElementById("lname").focus();
+});
+*/
 let outputWidth;
 let outputHeight;
 
