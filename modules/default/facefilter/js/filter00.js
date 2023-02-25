@@ -1,3 +1,26 @@
+setInterval(
+    function() {
+      document.getElementById("lname").value = "";
+    }, 9000);
+
+
+setInterval(
+    function() {
+      image(videoInput, 0, 0, outputWidth, outputHeight);
+      if(document.getElementById("lname").value == "1")
+      {
+        drawDetectionSquare();
+      }
+      if(document.getElementById("lname").value == "2")
+      {
+        drawDogFaceMirror();
+      }
+      if(document.getElementById("lname").value == "3")
+      {
+        drawSpidermanMaskMirror();
+      }
+    }, 50);
+
 
 let newsIterator =1;
 
@@ -117,6 +140,9 @@ function draw() {
 	    break;
 	case '12':
 	    drawSpidermanMask();
+        break;
+    case '13':
+            drawSpidermanMaskMirror();
             break;
     }
 }
@@ -125,6 +151,22 @@ function draw() {
 function drawSpidermanMask()
 {
   const positions = faceTracker.getCurrentPosition();
+  if (positions !== false)
+  {
+    push();
+    const wx = Math.abs(positions[13][0] - positions[1][0]) * 1.2; // The width is given by the face width, based on the geometry
+    const wy = Math.abs(positions[7][1] - Math.min(positions[16][1], positions[20][1])) * 1.2; // The height is given by the distance from nose to chin, times 2
+    translate(-wx/2, -wy/2);
+    image(imgSpidermanMask, positions[62][0], positions[62][1], wx, wy); // Show the mask at the center of the face
+    pop();
+  }
+}
+
+//spiderman face filter
+function drawSpidermanMaskMirror()
+{
+  const positions = faceTracker.getCurrentPosition();
+  filter(THRESHOLD);
   if (positions !== false)
   {
     push();
@@ -192,7 +234,7 @@ function drawDogFace() {
     }
 }
 
-// Dog Face Filter
+// Dog Face Filter with Mirror
 function drawDogFaceMirror() {
     const positions = faceTracker.getCurrentPosition();
      filter(THRESHOLD);

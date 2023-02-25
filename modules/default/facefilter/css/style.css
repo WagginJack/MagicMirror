@@ -125,7 +125,7 @@ body{
     align-items: center;
     display: flex;*/
     
-
+    transform: rotateY(180deg);
     position: relative;
     height: 200px;
     display: flex;
@@ -259,3 +259,41 @@ body{
     line-break: normal;
     z-index: 999;
 } 
+
+.textbox {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    text-align: center;
+    height: 10VH;/*
+    background: rgb(0, 0, 0);
+    background-repeat: repeat;*/
+    align-items: center;
+
+    z-index: 999;
+
+}
+
+.input_box{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    text-align: center;
+    height: auto;/*
+    background: rgb(0, 0, 0);*/
+    background-color: black;
+    /*background-repeat: repeat;
+    */align-items: center;
+    z-index: 999;
+}
+
+#lname{
+    background-color: black;
+    border-color: black;
+    outline: none;
+}
+
+#lname:focus{
+    background-color: black;
+    border-color: black;
+}
