@@ -1,29 +1,17 @@
+let newsIterator =1;
+setInterval(displayTime, 10);
+setInterval(displayDate, 10);
+setInterval(checkWeather, 10000);//needs optimiszation
+let iterator = 0;
+setInterval(compliments,10000);
+setInterval(getNews,7000);
 setInterval(
     function() {
-      document.getElementById("lname").value = "";
-    }, 9000);
-
-
-setInterval(
-    function() {
-      image(videoInput, 0, 0, outputWidth, outputHeight);
-      if(document.getElementById("lname").value == "1")
+      if(document.getElementById("lname").value != "")
       {
-        drawDetectionSquare();
-      }
-      if(document.getElementById("lname").value == "2")
-      {
-        drawDogFaceMirror();
-      }
-      if(document.getElementById("lname").value == "3")
-      {
-        drawSpidermanMaskMirror();
+        document.getElementById("lname").value = "";
       }
     }, 50);
-
-
-let newsIterator =1;
-
 
 let outputWidth;
 let outputHeight;
@@ -100,7 +88,14 @@ function applyFilter() {
 function draw() {
 
     image(videoInput, 0, 0, outputWidth, outputHeight); // render video from webcam
-
+    if(document.getElementById("lname").value=="")
+    {
+        selected = selected;
+    }
+    else
+    {
+        selected = document.getElementById("lname").value;
+    }
     // apply filter based on choice
     switch (selected) {
         case '-1':
@@ -109,9 +104,10 @@ function draw() {
             drawDetectionSquare();
             break;
         case '1':
-            drawDogFace();
+            drawFilterInstagram(3);
+            drawDetectionSquare();
             break;
-        case '2':
+        /*case '2':
             drawFilterInstagram(2);
             break;
         case '3':
@@ -134,14 +130,14 @@ function draw() {
             break;
         case '9':
             drawFilterInstagram(9);
-            break;
-	case '11':
-	    drawDogFaceMirror();
-	    break;
-	case '12':
+            break;*/
+	    case '2':
+	        drawDogFaceMirror();
+	        break;
+	/*case '12':
 	    drawSpidermanMask();
-        break;
-    case '13':
+        break;*/
+        case '3':
             drawSpidermanMaskMirror();
             break;
     }
@@ -191,6 +187,22 @@ function previewFile() {
         reader.readAsDataURL(file);
     } else {
         preview.src = "";
+    }
+}
+
+// Detection Square Mask Filter
+drawDetectionSquareMirror()
+{
+    const positions = faceTracker.getCurrentPosition();
+    //filter(THRESHOLD);
+    if (positions !== false) {
+        push();
+        const wx = Math.abs(positions[13][0] - positions[1][0]) * 1.2; // The width is given by the face width, based on the geometry
+        const wy = Math.abs(positions[7][1] - Math.min(positions[16][1], positions[20][1])) * 1.2; // The height is given by the distance from nose to chin, times 2
+        translate(-wx / 2, -wy / 2);
+        filter(THRESHOLD);
+        image(imgDetectionSquare, positions[62][0], positions[62][1], wx, wy); // Show the mask at the center of the face
+        pop();
     }
 }
 
@@ -351,12 +363,6 @@ function displayTime(){
     document.getElementById('minutes').innerHTML = min;
     
 }
-setInterval(displayTime, 10);
-setInterval(displayDate, 10);
-setInterval(checkWeather, 10000);//needs optimiszation
-let iterator = 0;
-setInterval(compliments,10000);
-setInterval(getNews,7000);
 
 
 function displayDate(){

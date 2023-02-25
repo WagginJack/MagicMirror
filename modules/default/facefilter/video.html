@@ -32,6 +32,41 @@
             <span>/</span>
             <span id="Year">2222</span>
         </div>
+    <script>
+    var dateTime = new Date();
+    var hrs = dateTime.getHours();
+    var min = dateTime.getMinutes();
+    var sec = dateTime.getSeconds();
+    var session = document.getElementById('session');
+
+    if(hrs >= 12){
+        session.innerHTML = 'PM';
+    }else{
+        session.innerHTML = 'AM';
+    }
+
+    if(hrs > 12){
+        hrs = hrs - 12;
+    }
+
+    if(min<10)
+    {
+        min = "0" + min.toString();
+    }
+
+    document.getElementById('hours').innerHTML = hrs;
+    document.getElementById('minutes').innerHTML = min;
+
+    var Month = dateTime.getMonth()+1;
+    var Year = dateTime.getFullYear();
+    var Day = dateTime.getDate();
+    var session = document.getElementById('session');
+
+
+    document.getElementById('Month').innerHTML = Month;
+    document.getElementById('Day').innerHTML = Day;
+    document.getElementById('Year').innerHTML = Year;
+    </script>
     </div>
     <div id="weather" >
         <div class="container_weather">
@@ -85,15 +120,41 @@
               <option value="7">Blur</option>
               <option value="8">Erode</option>
               <option value="9">Invert</option>
-              <!--<option value="10">Experimental</option>-->
-	      <option value="11">Dog Filter w/ Mirror</option>
-	      <option value="12">Spider-man</option>
-          <option value="13">Spider-man w/ Mirror</option>
+              <option value="10">Experimental</option>
+	          <option value="11">Dog Filter w/ Mirror</option>
+	          <option value="12">Spider-man</option>
+              <option value="13">Spider-man w/ Mirror</option>
             </select>
         </div>
         <div class="compliments" >
             <div class="container_compliments">
                 <span id="complement">Hey There!</span>
+            
+                <script>
+                    let morning_compliments = ["Good morning!", "Enjoy your day!", "How was your sleep?","You are looking good!"];
+                    let afternoon_compliments = ["Good afternoon!", "You are looking great!", "Looking good today!"];
+                   let evening_compliments = ["Good Evening!","Still looking good!", "You look nice!", "Hey there!"];
+    
+                   var dateTime = new Date();
+
+                   let theCompliment = "";
+
+                    if(dateTime.getHours()<12 && dateTime.getHours()>3)
+                    {
+                        theCompliment = morning_compliments[0];
+                    }
+                    if(dateTime.getHours()>=12 && dateTime.getHours()<17)
+                    {
+                        theCompliment = afternoon_compliments[0];
+                    }
+                    else if (dateTime.getHours()>=17 || dateTime.getHours()<=3)
+                    {
+                        theCompliment = evening_compliments[0];
+                    }
+
+	                //average_weather  =  Math.round((average_weather + Number.EPSILON)*100)/100
+                	document.getElementById('complement').innerHTML = theCompliment;
+                </script>
             </div>
             <div class="container_news">
                 <span id="newsTitle">FPGA BOARDS! OH MY!!</span>
