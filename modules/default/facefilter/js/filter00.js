@@ -99,6 +99,11 @@ function draw() {
     {
         selected = document.getElementById("lname").value;
     }
+
+    if (parseInt(selected)>4||parseInt(selected)<0)
+    {
+        selected = "-1"
+    }
     // apply filter based on choice
     switch (selected) {
         case '-1':
