@@ -100,9 +100,9 @@ function draw() {
         selected = document.getElementById("lname").value;
     }
 
-    if (parseInt(selected)>4||parseInt(selected)<0)
+    if ((selected>3)||((selected)<0))
     {
-        selected =-1;
+        selected ="-1";
     }
     // apply filter based on choice
     switch (selected) {
