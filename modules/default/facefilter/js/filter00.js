@@ -102,7 +102,7 @@ function draw() {
 
     if (parseInt(selected)>4||parseInt(selected)<0)
     {
-        selected = "-1"
+        selected =-1;
     }
     // apply filter based on choice
     switch (selected) {
