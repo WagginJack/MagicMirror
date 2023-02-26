@@ -102,6 +102,7 @@ function draw() {
     // apply filter based on choice
     switch (selected) {
         case '-1':
+            drawFilterInstagram(3);
             break;
         case '0':
             drawDetectionSquare();
