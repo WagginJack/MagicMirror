@@ -143,7 +143,7 @@ function draw() {
 	    case '2':
 	        drawDogFaceMirror();
 	        break;
-	/*case '12':
+	/*case '4':
 	    drawSpidermanMask();
         break;*/
         case '3':
@@ -200,7 +200,7 @@ function previewFile() {
 }
 
 // Detection Square Mask Filter
-drawDetectionSquareMirror()
+function drawDetectionSquareMirror()
 {
     const positions = faceTracker.getCurrentPosition();
     //filter(THRESHOLD);
